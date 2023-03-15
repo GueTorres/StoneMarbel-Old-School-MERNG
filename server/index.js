@@ -12,7 +12,6 @@ dotenv.config()
 const port = process.env.PORT;
 const DB = process.env.ATLAS_URI;
 
-console.log(DB);
 const startServer = async () => {
 
     const app = express();
@@ -21,11 +20,9 @@ const startServer = async () => {
     typeDefs,
     resolvers,
     });
-    // Note you must call `server.start()` on the `ApolloServer`
-    // instance before passing the instance to `expressMiddleware`
+
     await server.start();
 
-    // Specify the path where we'd like to mount our server
     app.use('/graphql', cors(), json(), expressMiddleware(server));
 
     await mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
