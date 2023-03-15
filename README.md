@@ -2,6 +2,10 @@
 
 This project will attempt to provide an interactive story inspired by OSE's Classic Fantasy Rules.
 
+## Install Instructions
+
+You'll need to install '@babel/cli @babel/core @babel/node @babel/preset-env nodemon @apollo/server graphql mongoose dotenv' in that order for GraphQL Apollo Server
+
 ## Available Scripts
 
 In the project directory, you can run:
