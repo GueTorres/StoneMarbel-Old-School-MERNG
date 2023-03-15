@@ -12,6 +12,7 @@ dotenv.config()
 const port = process.env.PORT;
 const DB = process.env.ATLAS_URI;
 
+console.log(DB);
 const startServer = async () => {
 
     const app = express();
@@ -31,6 +32,7 @@ const startServer = async () => {
     .then(() => { console.log("Succesfully Connected to Old School Database") })   
     .catch(() => { console.log("Error Connecting to the Mongodb Database") })
     
+
     app.listen({ port: port }, () =>
         console.log(`🎲🎲 http://localhost:${port}/graphql`)
     );
