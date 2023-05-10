@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 export const Monster = mongoose.model(
-"Monsters", {    
+"Monster", {    
     name: String, 
     AC: Number, 
     HD: Number, 

@@ -2,7 +2,8 @@ import { Monster } from './models/Monster'
 
 export const resolvers = {
     Query: {
-        monsters: async () => await Monster.find()
+        monsters: async () => await Monster.find(),
+        monster: async (monsterName) => await Monster.find({name: monsterName})
     },
     Mutation: {
         createMonster: async (_, {

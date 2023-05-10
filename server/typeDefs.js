@@ -1,6 +1,7 @@
 export const typeDefs = `
     type Query {
         monsters: [Monster!]!
+        monster: Monster!
     }
 
     type Monster {
