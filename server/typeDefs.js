@@ -1,11 +1,11 @@
 export const typeDefs = `
     type Query {
         monsters: [Monster!]!
-        monster: Monster!
+        monster(name: String!): Monster!
     }
 
     type Monster {
-        _id: ID! 
+        _id: ID!
         name: String!
         AC: Int
         HD: Int
