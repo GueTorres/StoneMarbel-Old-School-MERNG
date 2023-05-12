@@ -1,9 +1,12 @@
-import { Monster } from './models/Monster'
+import { Monster, Monsters } from './models/Monster'
 
 export const resolvers = {
     Query: {
-        monsters: async () => await Monster.find(),
-        monster: async (args) => await Monster.findOne(args)
+        monsters: async () => await Monsters.find(),
+        async monster (parent, args, context, info) {
+            const { name } = args;
+            return await Monster.findOne({ name: `${name}` })
+        }
     },
     Mutation: {
         createMonster: async (_, {
@@ -48,3 +51,20 @@ export const resolvers = {
         }
     }
 };
+
+async function findMonster(monsterName) {
+    const monsterList = await Monster.findOne({monsterName});
+    console.log(monsterList);
+    tonsole.log(monsterList);
+    // const foundMonster = await qsearch(monsterList, monsterName);
+    // console.log(foundMonster);
+    // return foundMonster;
+}
+
+async function qsearch( monsterList, monsterName) {
+    console.log(typeof monsterList);
+    for(var monster in monsterList) {
+        console.log(monster);
+        if(monster.name === monsterName) return monster;
+    }
+}
